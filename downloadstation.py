@@ -298,7 +298,7 @@ def clean(conn, options, args):
     conn.commit()
 
 def pause(conn, options, ids):
-    sql = 'UPDATE download_queue SET status = 3 WHERE (status = 1 OR status = 2) '+userClause(options)+" "+idClause(ids)
+    sql = 'UPDATE download_queue SET status = 3 WHERE (status = 1 OR status = 8 OR status = 2) '+userClause(options)+" "+idClause(ids)
     cursor = conn.cursor()
     cursor.execute(sql)
     cursor.close()
